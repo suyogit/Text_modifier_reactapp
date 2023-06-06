@@ -5,16 +5,19 @@ export default function TextForrrm(props) {
     //console.log("Uppercase was clicked : " + text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("converted to uppercase", "Success");
   };
   const handleLowClick = () => {
     //console.log("Uppercase was clicked : " + text);
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("converted to lowercase", "Success");
   };
   const handleClearClick = () => {
     //console.log("Uppercase was clicked : " + text);
     let newText = " ";
     setText(newText);
+    props.showAlert("Text cleared", "Success");
   };
   const handleOnChange = (event) => {
     // console.log("On change");
