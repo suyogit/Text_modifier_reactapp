@@ -20,10 +20,15 @@ export default function TextForrrm(props) {
     // console.log("On change");
     setText(event.target.value);
   };
-  const [text, setText] = useState("Enter text here");
+  const [text, setText] = useState(" ");
   return (
     <>
-      <div className="container">
+      <div
+        className="container"
+        style={{
+          color: props.mode === "dark" ? "white" : "black",
+        }}
+      >
         <div className="heading">
           <h1>{props.heading}</h1>
         </div>
@@ -35,6 +40,11 @@ export default function TextForrrm(props) {
             onChange={handleOnChange}
             id="myBox"
             rows="14"
+            style={{
+              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              color: props.mode === "dark" ? "white" : "black",
+            }}
+            placeholder="Enter text here......"
           ></textarea>
         </div>
         <button
@@ -59,14 +69,19 @@ export default function TextForrrm(props) {
           Clear
         </button>
       </div>
-      <div className="container my-3">
+      <div
+        className="container my-3"
+        style={{
+          color: props.mode === "dark" ? "white" : "black",
+        }}
+      >
         <h1>your text summary</h1>
         <p>
           {text.split(" ").length} words and {text.length} charaters
         </p>
         <p>{0.008 * text.split(" ").length} Minutes read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length > 0 ? text : "Enter in text box to preview  here"}</p>
       </div>
     </>
   );
