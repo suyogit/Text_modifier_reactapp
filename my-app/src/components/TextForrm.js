@@ -51,6 +51,7 @@ export default function TextForrrm(props) {
           ></textarea>
         </div>
         <button
+          disabled={text.length === 0}
           button
           className="btn btn-primary mx-3 my-1"
           onClick={handleUpClick}
@@ -58,6 +59,7 @@ export default function TextForrrm(props) {
           Click to Uppercase
         </button>
         <button
+          disabled={text.length === 0}
           button
           className="btn btn-primary mx-3 my-1"
           onClick={handleLowClick}
@@ -78,11 +80,22 @@ export default function TextForrrm(props) {
           color: props.mode === "dark" ? "white" : "black",
         }}
       >
-        <h1>your text summary</h1>
+        <h1>Your text summary</h1>
         <p>
-          {text.split(" ").length} words and {text.length} charaters
+          {
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} charaters
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes read</p>
+        <p>
+          {0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes read
+        </p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Enter in text box to preview  here"}</p>
       </div>
