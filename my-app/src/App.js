@@ -25,10 +25,18 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "grey";
       showAlert("Dark mode has been enabled", "success");
+      document.title = "Suyog-darkmode";
+      // setInterval(() => {
+      //   document.title = "virus threat";
+      // }, 1500);
+      // setInterval(() => {
+      //   document.title = "download this app";
+      // }, 1500);
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
+      document.title = "Suyog-lightmode";
     }
   };
   return (
